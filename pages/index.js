@@ -19,7 +19,7 @@ function EarthquakeAI() {
 
     try {
       // เรียกใช้งาน API ด้วย axios
-      const response = await axios.post('http://34.68.110.195:5200/predict', {
+      const response = await axios.post('http://34.68.110.195/predict', {
         Magnitude: magnitude,
         Depth: depth,
         Reaction: reaction,
@@ -43,7 +43,7 @@ function EarthquakeAI() {
       const year = new Date().getFullYear();
       const month = new Date().getMonth() + 1;
 
-      const response = await axios.get(`http://34.68.110.195:5200/download?year=${selectedYear}&month=${selectedMonth}`, {
+      const response = await axios.get(`http://34.68.110.195/download?year=${selectedYear}&month=${selectedMonth}`, {
         responseType: 'blob',
       });
 
