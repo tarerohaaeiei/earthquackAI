@@ -28,7 +28,7 @@ function EarthquakeAI() {
 
     try {
       // เรียกใช้งาน API ด้วย axios
-      const response = await axios.post('https://earthquackai.zapto.org/predict', {
+      const response = await axios.post('http://earthquakeai.site:5200/predict', {
         Magnitude: magnitude,
         Depth: depth,
         Reaction: reaction,
@@ -52,7 +52,7 @@ function EarthquakeAI() {
       const year = new Date().getFullYear();
       const month = new Date().getMonth() + 1;
 
-      const response = await axios.get(`https://earthquackai.zapto.org//download?year=${selectedYear}&month=${selectedMonth}`, {
+      const response = await axios.get(`http://earthquakeai.site:5200/download?year=${selectedYear}&month=${selectedMonth}`, {
         responseType: 'blob',
       });
 
