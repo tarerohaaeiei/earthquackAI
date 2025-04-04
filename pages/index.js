@@ -10,11 +10,22 @@ function EarthquakeAI() {
   const [destruction, setDestruction] = useState('');
   const [intensityDescription, setIntensityDescription] = useState('');
   const [destructionDescription, setDestructionDescription] = useState('');
-  const [selectedMonth, setSelectedMonth] = useState(''); 
-  const [selectedYear, setSelectedYear] = useState(''); 
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
   const [warningMessage, setWarningMessage] = useState(''); // สถานะสำหรับเก็บข้อความเตือน
-  
-  // ฟังก์ชันเรียก API สำหรับการคำนวณ
+  const [location, setLocation] = useState({
+    "lat": null,
+    "lng": null
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLocation((prevLocation) => ({
+      ...prevLocation,
+      [name]: parseFloat(value),
+    }));
+  };
+
   const calculateEarthquake = async (e) => {
     e.preventDefault();
 
@@ -35,11 +46,22 @@ function EarthquakeAI() {
       });
 
       const data = response.data;
-      console.log(data);
       setIntensity(data.Intensity);
       setDestruction(data.Destruction);
       setIntensityDescription(data.Intensity_description);
       setDestructionDescription(data.Destruction_description);
+
+      await axios.post('https://api.earthquakeai.site/earthquake', {
+        "magnitude": parseInt(magnitude),
+        "depth": parseInt(depth),
+        "reaction": parseInt(reaction),
+        "intensity": parseInt(data.Intensity),
+        "destructionNumber": parseInt(data.Destruction),
+        "location": {
+          lat: parseFloat(location.lat),
+          lng: parseFloat(location.lng),
+        },
+      });
 
     } catch (error) {
       console.error('Error:', error);
@@ -57,7 +79,7 @@ function EarthquakeAI() {
       });
 
       if (response.status === 200) {
-        const blob = new Blob([response.data],{ type: 'text/csv' });
+        const blob = new Blob([response.data], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -100,6 +122,32 @@ function EarthquakeAI() {
             value={reaction}
             onChange={(e) => setReaction(e.target.value)}
           />
+        </div>
+        <div className="form-group-lat-lng-container">
+          <div className='form-group-lat-lng'>
+            <label>Latitude </label>
+            <input
+              type="number"
+              name="lat"
+              value={location.lat || 0.00000000}
+              onChange={handleInputChange}
+              step="any"
+              min="-90"
+              max="90"
+            />
+          </div>
+          <div className='form-group-lat-lng'>
+            <label>Longitude </label>
+            <input
+              type="number"
+              name="lng"
+              value={location.lng || 0.00000000}
+              onChange={handleInputChange}
+              step="any"
+              min="-90"
+              max="90"
+            />
+          </div>
         </div>
         <button type="submit">submit</button>
         {warningMessage && <p className="warning-message">** {warningMessage}**</p>}

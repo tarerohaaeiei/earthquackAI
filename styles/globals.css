@@ -1,52 +1,76 @@
-@media (min-width: 769px){
-  body { 
+@media (min-width: 769px) {
+  body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin-top: 5%;
     overflow: hidden;
   }
-  
+
   /* กล่องหลักที่ครอบทุกอย่าง */
   .container {
     display: flex;
   }
-  
+
   /* สไตล์สำหรับหัวข้อ */
   h1 {
-    position : relative ;
+    position: relative;
     color: #5F6F52;
     font-size: 4vw;
     margin-left: 9%;
     font-family: Inria Serif;
     margin-bottom: 2vh;
   }
-  
+
   h2 {
-    position : absolute ;
+    position: absolute;
     color: #5F6F52;
     font-size: 4vw;
     margin-left: 9%;
     font-family: Inria Serif;
     margin-bottom: 2vh;
-    top: 17vh ;
+    top: 17vh;
   }
-  
+
   /* ฟอร์ม input */
   .form-group {
     display: flex;
-    position : relative ;
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
-    top: 32vh ;
-    left : -10vh ;
+    top: 32vh;
+    left: -10vh;
   }
-  
+
+  .form-group-lat-lng-container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    top: 32vh;
+    left: -10vh;
+  }
+
+  .form-group-lat-lng {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    input {
+      width: 70%;
+      padding: 1vh;
+      border: 1px solid #ccc;
+      border-radius: 2vh;
+      margin-bottom: 5vh;
+      font-size: 0.9vw;
+    }
+  }
+
   label {
     color: #333;
     font-size: 1vw;
     margin-bottom: 1vh;
   }
-  
+
   input {
     width: 20vw;
     padding: 1vh;
@@ -55,39 +79,42 @@
     margin-bottom: 5vh;
     font-size: 0.9vw;
   }
-  
+
   /* จัดวาง Intensity และ Destruction ในแถวเดียวกัน */
   .result {
     display: flex;
-    flex-direction: column; /* เปลี่ยนเป็นแนวตั้งเพื่อจัด layout ใหม่ */
+    flex-direction: column;
+    /* เปลี่ยนเป็นแนวตั้งเพื่อจัด layout ใหม่ */
     margin-left: 5vw;
     margin-top: 13vh;
   }
-  
-  .result  {
-    position :relative ;
-    display: flex;  /* จัดวางให้อยู่แนวเดียวกัน */
-    width: 5%; /* ปรับขนาดให้รองรับหน้าจอ */
-    top: 18vh ;
-  
+
+  .result {
+    position: relative;
+    display: flex;
+    /* จัดวางให้อยู่แนวเดียวกัน */
+    width: 5%;
+    /* ปรับขนาดให้รองรับหน้าจอ */
+    top: 18vh;
+
   }
-  
+
   .result label {
     font-size: 1vw;
     padding: 0.5vh;
   }
-  
+
   .result textarea {
-    position :relative ;
+    position: relative;
     width: 20vw;
     height: 12vh;
     border-radius: 1vh;
     font-size: 0.9vw;
   }
-  
+
   /* สไตล์สำหรับปุ่ม */
   button {
-    position: relative ;
+    position: relative;
     background-color: #f1a66a;
     border: none;
     color: white;
@@ -95,53 +122,57 @@
     font-size: 1.2vw;
     padding: 1.5vh 3vw;
     border-radius: 2vh;
-    top: 35vh ;
-    left : 1vh ;
+    top: 35vh;
+    left: 1vh;
   }
-  
+
   button:hover {
     background-color: #e59355;
   }
-  
+
   /* ปุ่มดาวน์โหลด และปี/เดือน */
-  
-  .month, .year {
-    position: relative ;
-    top: 70vh ;
-    left : -5vh ;
-    padding :0.2vw ;
+
+  .month,
+  .year {
+    position: relative;
+    top: 70vh;
+    left: -5vh;
+    padding: 0.2vw;
   }
-  
-  .month select, .year select {
+
+  .month select,
+  .year select {
     font-size: 1vw;
   }
-  
-  .month select, .year select {
+
+  .month select,
+  .year select {
     font-size: 1vw;
   }
-  
+
   .download-button {
-    position: relative ;
+    position: relative;
     color: rgb(65, 108, 234);
     border-radius: 5 vw;
     cursor: pointer;
     font-size: 1.5vw;
-    top: 75vh ;
-    left : -21vh ;
+    top: 75vh;
+    left: -21vh;
   }
+
   .download-button i {
     display: block;
     font-size: 2.2vw;
-    position : relative ;
-    left : 2vh ;
+    position: relative;
+    left: 2vh;
   }
-  
+
   .download-button span {
     display: block;
     color: black;
     font-size: 0.9vw;
   }
-  
+
   .empty-bar {
     height: 7vh;
     background-color: #A9B388;
@@ -150,170 +181,176 @@
     top: 0;
     left: 0;
   }
+
   .warning-message {
     color: red;
     font-size: 0.8vw;
     display: flex;
-    position : relative ;
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
-    top: 22vh ;
-    left : -10vh ;
-    
+    top: 22vh;
+    left: -10vh;
+
   }
-  
+
+}
+
+
+@media (max-width: 768px) {
+
+  /* ตั้งค่า body สำหรับโทรศัพท์ */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin-top: 5%;
+    /* อาจปรับลดหรือเอาออกในมือถือ */
   }
-  
-  
-  @media (max-width: 768px) { 
-    /* ตั้งค่า body สำหรับโทรศัพท์ */
-    body { 
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin-top: 5%; /* อาจปรับลดหรือเอาออกในมือถือ */
-    }
-  
-    /* การจัดวาง container */
-    .container {
-      display: block;
-      text-align: center;
-    }
-  
-    /* หัวข้อ H1 และ H2 */
-    h1 {
-      color: #5F6F52;
-      font-size: 8vw;
-      font-family: Inria Serif;
-      position: relative ;
-      margin-top : 10vh ;
-    }
-  
-    h2 {
-      position: relative ;
-      color: #5F6F52;
-      font-size: 6vw;
-      margin-left: 0;
-      font-family: Inria Serif;
-      margin-bottom: 2vh;
-      top: -3vh;
-    }
-  
-    /* การจัดวางฟอร์ม input */
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      top: 25vh;
-      left: 0;
-    }
-  
-    label {
-      color: #333;
-      font-size: 5vw;
-      margin-bottom: 1vh;
-    }
-  
-    input {
-      width: 80vw;
-      padding: 1.5vh;
-      border: 1px solid #ccc;
-      border-radius: 2vh;
-      margin-bottom: 5vh;
-      font-size: 5vw;
-    }
-  
-    /* การจัดวาง result */
-    .result {
-      display: flex;
-      flex-direction: column;
-      width: 90vw;
-      margin-top: 5vh;
-    }
-  
-    .result label {
-      font-size: 4.5vw;
-      padding: 1vh ;
-      position: relative ;
-      left : 3vw ;
-    }
-  
-    .result textarea {
-      position: relative ;
-      width: 80vw;
-      height: 15vh;
-      border-radius: 1vh;
-      font-size: 5vw;
-      left : 5vw ;
-      padding: 1vh ;
-    }
-  
-    /* สไตล์สำหรับปุ่ม */
-    button {
-      background-color: #f1a66a;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-size: 5vw;
-      padding: 2vh 5vw;
-      border-radius: 2vh;
-      margin-top: 0.7vh;
-    }
-  
-    button:hover {
-      background-color: #e59355;
-    }
-  
-    /* ปุ่มดาวน์โหลด และปี/เดือน */
-    .month, .year {
-      position: relative;
-      display: inline-block;
-      top: 0.5vh;
-      left: -2vw;
-    }
-    
-  
-    .month select, .year select {
-      font-size: 4.5vw;
-    }
-  
-    .download-button {
-      color: rgb(65, 108, 234);
-      cursor: pointer;
-      font-size: 5vw;
-      top: 1.5vh;
-      left: 0;
-      position: relative ;
-    }
-  
-    .download-button i {
-      font-size: 7vh;
-      left: 10vw;
-      position: relative ;
-    }
-  
-    .download-button span {
-      font-size: 4vw;
-      left: -8.5vw;
-      position: relative ;
-      top: 3vh ;
-      padding : 1vh ;
-    }
-  
-    /* แถบ empty-bar */
-    .empty-bar {
-      height: 7vh;
-      background-color: #A9B388;
-      width: 100%;
-      position : fixed ;
-      top: 0;
-      left: 0;
-    }
-    .warning-message {
-      position : relative ;
-      color: red;
-      font-size: 3vw;
-      top: -11.5vh ; /* ปรับระยะห่างระหว่างข้อความเตือนกับฟอร์ม */
-      left: 0vw;
-    }
+
+  /* การจัดวาง container */
+  .container {
+    display: block;
+    text-align: center;
   }
- 
+
+  /* หัวข้อ H1 และ H2 */
+  h1 {
+    color: #5F6F52;
+    font-size: 8vw;
+    font-family: Inria Serif;
+    position: relative;
+    margin-top: 10vh;
+  }
+
+  h2 {
+    position: relative;
+    color: #5F6F52;
+    font-size: 6vw;
+    margin-left: 0;
+    font-family: Inria Serif;
+    margin-bottom: 2vh;
+    top: -3vh;
+  }
+
+  /* การจัดวางฟอร์ม input */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 25vh;
+    left: 0;
+  }
+
+  label {
+    color: #333;
+    font-size: 5vw;
+    margin-bottom: 1vh;
+  }
+
+  input {
+    width: 80vw;
+    padding: 1.5vh;
+    border: 1px solid #ccc;
+    border-radius: 2vh;
+    margin-bottom: 5vh;
+    font-size: 5vw;
+  }
+
+  /* การจัดวาง result */
+  .result {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin-top: 5vh;
+  }
+
+  .result label {
+    font-size: 4.5vw;
+    padding: 1vh;
+    position: relative;
+    left: 3vw;
+  }
+
+  .result textarea {
+    position: relative;
+    width: 80vw;
+    height: 15vh;
+    border-radius: 1vh;
+    font-size: 5vw;
+    left: 5vw;
+    padding: 1vh;
+  }
+
+  /* สไตล์สำหรับปุ่ม */
+  button {
+    background-color: #f1a66a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 5vw;
+    padding: 2vh 5vw;
+    border-radius: 2vh;
+    margin-top: 0.7vh;
+  }
+
+  button:hover {
+    background-color: #e59355;
+  }
+
+  /* ปุ่มดาวน์โหลด และปี/เดือน */
+  .month,
+  .year {
+    position: relative;
+    display: inline-block;
+    top: 0.5vh;
+    left: -2vw;
+  }
+
+
+  .month select,
+  .year select {
+    font-size: 4.5vw;
+  }
+
+  .download-button {
+    color: rgb(65, 108, 234);
+    cursor: pointer;
+    font-size: 5vw;
+    top: 1.5vh;
+    left: 0;
+    position: relative;
+  }
+
+  .download-button i {
+    font-size: 7vh;
+    left: 10vw;
+    position: relative;
+  }
+
+  .download-button span {
+    font-size: 4vw;
+    left: -8.5vw;
+    position: relative;
+    top: 3vh;
+    padding: 1vh;
+  }
+
+  /* แถบ empty-bar */
+  .empty-bar {
+    height: 7vh;
+    background-color: #A9B388;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .warning-message {
+    position: relative;
+    color: red;
+    font-size: 3vw;
+    top: -11.5vh;
+    /* ปรับระยะห่างระหว่างข้อความเตือนกับฟอร์ม */
+    left: 0vw;
+  }
+}
